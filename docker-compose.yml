@@ -1,0 +1,13 @@
+version: '3'
+services:
+  database:
+    image: 'mongo'
+    environment:
+      - MONGO_INITDB_DATABASE=example
+      - MONGO_INITDB_ROOT_USERNAME=ethan
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - ./init-script.js:/docker-entrypoint-initdb.d/init-script.js:ro
+    ports:
+      - '27017-27019:27017-27019'
+    # ... other configs ...
